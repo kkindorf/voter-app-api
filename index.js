@@ -8,7 +8,8 @@ const mongoose = require('mongoose');
 const Poll = require('./models/poll');
 
 //DB setup
-mongoose.connect('mongodb://localhost/new-vote');
+//mongoose.connect('mongodb://localhost/new-vote');
+mongoose.connect('mongodb://kkindorf:Zooniebin9765@ds259109.mlab.com:59109/voter-app')
 //app setup
 app.use(cors());
 //type: */* tells bodyParser that it will parse any body request using json
