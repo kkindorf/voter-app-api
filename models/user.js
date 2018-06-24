@@ -18,7 +18,10 @@ const userSchema = new Schema({
 userSchema.pre('save', function(next) {
     //get access to user model
     const user = this;
-
+    if(!user.isModified('password')){
+        return next();
+    } // if statement allows us to save user without modifying password hash
+    //generate a salt then run callback
     //generate a salt then run callback
     bcrypt.genSalt(10, function(err, salt) {
         if(err) {
